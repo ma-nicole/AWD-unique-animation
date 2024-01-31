@@ -1,0 +1,184 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://images.pexels.com/photos/957061/milky-way-starry-sky-night-sky-star-957061.jpeg?cs=srgb&dl=pexels-felix-mittermeier-957061.jpg&fm=jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    transition: all 5s ease-in-out;
+}
+body.light{
+    background-image: url("https://www.bhmpics.com/downloads/clear-sky-hd-Wallpapers/3.pexels-photo-695657.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    display: flex;
+    transition: all 5s ease-in-out;
+}
+.toggle{
+    position: relative;
+    left:42%;
+    bottom: 470px;
+    height: 50px;
+    width: 100px;
+    border-radius: 100px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 3px 5px 10px rgba(94, 36, 161, 0.1);
+    cursor: pointer;
+}
+.toggle::before{
+    content:"";
+    position: absolute;
+    height:40px;
+    width: 40px;
+    background: #303136;
+    box-shadow: inset -13px -5px 0 0 #11dfff;
+    border-radius: 50%;
+    top: 50%;
+    left: 6px;
+    transform: translateY(-50%);
+    transition: all 2s ease-in-out;
+}
+
+.toggle.active::before {
+    left: calc(100% - 40px - 6px);
+    transition-delay: 0.001s;
+    background: linear-gradient(80deg, #fffb00, #ff8c00 95%);
+    box-shadow: none;
+}
+
+
+.cloud{
+    bottom: 20%;
+    position: relative;
+    width: 500px;
+    height: 200px;
+    background: white;
+    border-radius: 100px;
+    z-index:100;
+    filter: drop-shadow(0 0 5px white);
+    transform: translateY(40%);
+    transition: all 4s ease-in-out;
+}
+.cloud::before{
+    content: '';
+    position: absolute;
+    top:-80px;
+    left: 10%;
+    width: 208px;
+    height: 208px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 150px 0 0 30px white;
+}
+.cloud1{
+    bottom: 20%;
+    position: relative;
+    width: 500px;
+    height: 200px;
+    background: white;
+    border-radius: 100px;
+    filter: drop-shadow(0 0 5px white);
+    transform: translateY(70%);
+    transition: all 4s ease-in-out;
+}
+.cloud1::before{
+    content: '';
+    position: absolute;
+    top:-80px;
+    left: 10%;
+    width: 208px;
+    height: 208px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 150px 0 0 30px white;
+ 
+}
+
+.cloud2{
+    bottom: 20%;
+    position: relative;
+    width: 500px;
+    height: 200px;
+    background: white;
+    border-radius: 100px;
+    filter: drop-shadow(0 0 5px white);
+    transform: translateY(40%);
+    transition: all 4s ease-in-out;
+}
+.cloud2::before{
+    content: '';
+    position: absolute;
+    top:-80px;
+    left: 10%;
+    width: 208px;
+    height: 208px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 150px 0 0 30px white;
+
+
+}
+.moon{
+    left: -5%;
+    bottom: 50%;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(to right, #fffad9, #646454);
+    border-radius: 500px;
+    z-index:100;
+    filter: drop-shadow(0 0 5px white);
+    transform: translateY(70%);
+    transition: all 4s ease-in-out;
+    transform: translateY(70%);
+    transition: all 4s ease-in-out;
+}
+
+
+
+body.light .cloud,
+body.light .cloud1,
+body.light .cloud2,
+body.light .moon {
+    transform: translateY(-500%);
+    transition: all 4s ease-in-out;
+}
+
+.sun {
+    position: absolute;
+    bottom: 50%;
+    left: 35%;
+    width: 800px;
+    height: 800px;
+    background: linear-gradient(to bottom, #fff789, #ffe600, #ff8800);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.8) rotate(0deg);
+    transition: opacity 5s ease-in-out, transform 5s ease-in-out;
+    filter: drop-shadow(0 0 200px rgb(242, 255, 0));
+    animation: rotateSun 3s linear infinite;
+}
+
+@keyframes rotateSun {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+body.light .sun {
+    opacity: 1;
+    transform: scale(1); 
+}
